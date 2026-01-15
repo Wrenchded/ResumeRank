@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeRank AI | Landing Your Dream Job with AI</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* --- LOGO SECTION --- */
+        .logo-wrapper {
+            margin-bottom: 0px; 
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-logo {
+            width: 300px; 
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* --- MAX ELEVATED BADGE --- */
+        .badge {
+            background: rgba(79, 70, 229, 0.2);
+            color: #818cf8;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-top: -50px; 
+            margin-bottom: 30px; 
+            border: 1px solid rgba(79, 70, 229, 0.3);
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            margin-top: 0;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            background-clip: text; 
+        }
+
+        p.description {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 30px -10px rgba(79, 70, 229, 0.5);
+        }
+
+        /* --- TRIANGULAR FEATURE ALIGNMENT --- */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 24px;
+            margin-top: 60px;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px; 
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            flex: 1 1 calc(45% - 24px); 
+            min-width: 280px;
+            box-sizing: border-box;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(79, 70, 229, 0.4);
+            transform: translateY(-5px);
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .card-icon {
+            color: var(--primary); 
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #ffffff; 
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* --- PREMIUM FOOTER STYLING --- */
+        footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            width: 100%;
+        }
+
+        /* The Glowing Divider Line */
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4px 12px;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #22c55e; /* Green */
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        .footer-credits {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 5px;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .highlight { color: var(--primary); font-weight: bold; }
+
+        /* --- NEW RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .main-logo { width: 240px; }
+            .badge { margin-top: -30px; font-size: 0.75rem; }
+            p.description { font-size: 1.1rem; }
+            .features { gap: 16px; }
+        }
+
+        @media (max-width: 650px) {
+            .feature-card, .feature-card:last-child {
+                flex: 1 1 100%; /* Stacks cards on mobile */
+                text-align: center; /* Better readability for single column */
+            }
+            .card-icon { margin-inline: auto; } /* Center icons on mobile */
+            h1 { font-size: 2.2rem; }
+            .main-logo { width: 180px; }
+            .badge { margin-top: -20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="ResumeRank AI Logo" class="main-logo">
+        </div>
+
+        <span class="badge">POWERED BY GEMINI 3 FLASH</span>
+        
+        <h1>Resume<span style="color: var(--primary); -webkit-text-fill-color: var(--primary);">Rank</span> AI</h1>
+        
+        <p class="description">Stop sending resumes into the "black hole." Get an instant <span class="highlight">AI-powered audit</span> and see exactly how you rank against any job description.</p>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsiD76RKCG7mMWAwFWE2M0SYof6HSTx-GBUI7AM2GMYuhvHQ/viewform?usp=dialog" class="btn cta-button">Analyze My Resume →</a>
+
+        <div class="features">
+            <div class="feature-card">
+                <i data-lucide="target" class="card-icon" size="32"></i>
+                <h3>Match Score</h3>
+                <p>Get a precise score from 0-100 based on your skill alignment.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i data-lucide="search" class="card-icon" size="32"></i>
+                <h3>Gap Analysis</h3>
+                <p>We identify missing keywords and technical requirements.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i data-lucide="mail" class="card-icon" size="32"></i>
+                <h3>Email Delivery</h3>
+                <p>A full professional report sent to your inbox in seconds.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-status">
+                    <span class="status-dot"></span>
+                    SYSTEMS OPERATIONAL: GEMINI 3 FLASH ACTIVE
+                </div>
+    
+                <div class="footer-credits">
+                    Built with ❤️ by <span style="color: #fff; font-weight: 600;">Aditya Sarmalkar</span>
+                </div>
+    
+                <div class="footer-links">
+                    <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+    
+                <div style="font-size: 0.7rem; color: #475569; margin-top: 10px;">
+                    &copy; 2026 ResumeRank AI. Part of the AI Product Showcase.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+</body>
+</html>

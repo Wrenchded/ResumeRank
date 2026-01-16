@@ -97,6 +97,19 @@
             font-size: 0.8rem;
             color: var(--text-dim);
         }
+
+        /* Mobile Adjustments for Privacy Page */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 15px; /* Less top/bottom space on mobile */
+            }
+            .glass-card {
+                padding: 25px 20px; /* Slightly tighter padding inside the card */
+            }
+            h1 {
+                font-size: 1.8rem; /* Shrinks title so it doesn't break into 3 lines */
+            }
+        }
     </style>
 </head>
 <body>

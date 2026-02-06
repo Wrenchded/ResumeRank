@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResumeRank | Initializing AI</title>
+    <title>ResumeRank AI | Initializing Audit</title>
     <style>
         body {
             background: #0f172a;
@@ -15,30 +15,84 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
+        
+        .loader-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .loader {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border: 3px solid rgba(79, 70, 229, 0.1);
             border-left-color: #4f46e5;
+            border-top-color: #4f46e5;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
+
+        .pulse {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            animation: pulse-ring 1.5s ease-out infinite;
+        }
+
         @keyframes spin { to { transform: rotate(360deg); } }
-        .text { margin-top: 20px; font-weight: 600; letter-spacing: 1px; color: #818cf8; }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.5); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .text { 
+            margin-top: 30px; 
+            font-weight: 700; 
+            letter-spacing: 1.5px; 
+            color: #f8fafc; 
+            text-align: center;
+        }
+
+        .subtext { 
+            color: #818cf8; 
+            font-size: 0.85rem; 
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .system-log {
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11px;
+            color: #475569;
+        }
     </style>
     <script>
-        // REPLACE THE URL BELOW WITH YOUR GOOGLE FORM LINK
-        const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdsiD76RKCG7mMWAwFWE2M0SYof6HSTx-GBUI7AM2GMYuhvHQ/viewform?usp=dialog";
+        const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdsiD76RKCG7mMWAwFWE2M0SYof6HSTx-GBUI7AM2GMYuhvHQ/viewform?usp=dialog";        
         
         setTimeout(() => {
-            window.location.href = FORM_URL;
-        }, 1800);
+            // .replace() handles the back-button correctly
+            window.location.replace(FORM_URL);
+        }, 1800); 
     </script>
 </head>
 <body>
-    <div class="loader"></div>
-    <div class="text">CONNECTING TO GEMINI 3 FLASH...</div>
-    <div style="color: #64748b; font-size: 0.8rem; margin-top: 10px;">Securing your audit environment</div>
+    <div class="loader-wrapper">
+        <div class="pulse"></div>
+        <div class="loader"></div>
+    </div>
+
+    <div class="text">PREPARING AUDIT PORTAL...</div>
+    <div class="subtext">Authorizing your secure session with Gemini 3 Flash.</div>
+    
+    <div class="system-log">
+        Token validation... [OK]<br>
+        Secure environment... [ESTABLISHED]
+    </div>
 </body>
 </html>
